@@ -157,7 +157,7 @@ class HttpDispatch(object):
 
     @property
     def http_headers(self):
-        headers = {'User-Agent': self.user_agent}
+        headers = {'Content-Type': 'application/json', 'User-Agent': self.user_agent}
         return headers
 
 
