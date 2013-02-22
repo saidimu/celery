@@ -138,9 +138,8 @@ class HttpDispatch(object):
 
     def make_request(self, url, method, params):
         """Makes an HTTP request and returns the response."""
-        request = urllib2.Request(url, params)
-        for key, val in self.http_headers.items():
-            request.add_header(key, val)
+        request = urllib2.Request(url, params, headers=self.http_headers)
+        request.headers.update(self.http_headers)
         response = urllib2.urlopen(request)         # user catches errors.
         return response.read()
 
